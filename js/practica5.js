@@ -255,35 +255,35 @@ function ejecutarAnimacion() {
 function cargarTodasTexturas() {
     var cargadorTexturas = new THREE.TextureLoader();
     
-    texturaPiso = cargadorTexturas.load("../images/pisometalico_1024.jpg");
+    texturaPiso = cargadorTexturas.load("./images/pisometalico_1024.jpg");
     texturaPiso.wrapS = THREE.RepeatWrapping;
     texturaPiso.wrapT = THREE.RepeatWrapping;
     
-    texturaBase = cargadorTexturas.load("../images/metal_128.jpg");
+    texturaBase = cargadorTexturas.load("./images/metal_128.jpg");
     texturaBase.wrapS = THREE.RepeatWrapping;
     texturaBase.wrapT = THREE.RepeatWrapping;
     
-    texturaNervios = cargadorTexturas.load("../images/wood512.jpg");
+    texturaNervios = cargadorTexturas.load("./images/wood512.jpg");
     texturaNervios.wrapS = THREE.RepeatWrapping;
     texturaNervios.wrapT = THREE.RepeatWrapping;
     
-    texturaMano = cargadorTexturas.load("../images/burberry_256.jpg");
+    texturaMano = cargadorTexturas.load("./images/burberry_256.jpg");
     texturaMano.wrapS = THREE.RepeatWrapping;
     texturaMano.wrapT = THREE.RepeatWrapping;
     
-    var cargadorCubo = new THREE.CubeTextureLoader().setPath("../images/");
+    var cargadorCubo = new THREE.CubeTextureLoader().setPath("./images/");
     texturaRotula = cargadorCubo.load([
         "posx.jpg", "negx.jpg",
         "posy.jpg", "negy.jpg",
         "posz.jpg", "negz.jpg"
     ]);
     
-    texturaLado1 = cargadorTexturas.load('../images/posx.jpg');
-    texturaLado2 = cargadorTexturas.load('../images/negx.jpg');
-    texturaLado3 = cargadorTexturas.load('../images/posy.jpg');
-    texturaLado4 = cargadorTexturas.load('../images/negy.jpg');
-    texturaLado5 = cargadorTexturas.load('../images/posz.jpg');
-    texturaLado6 = cargadorTexturas.load('../images/negz.jpg');
+    texturaLado1 = cargadorTexturas.load('./images/posx.jpg');
+    texturaLado2 = cargadorTexturas.load('./images/negx.jpg');
+    texturaLado3 = cargadorTexturas.load('./images/posy.jpg');
+    texturaLado4 = cargadorTexturas.load('./images/negy.jpg');
+    texturaLado5 = cargadorTexturas.load('./images/posz.jpg');
+    texturaLado6 = cargadorTexturas.load('./images/negz.jpg');
 }
 
 function construirEscenaCompleta() {

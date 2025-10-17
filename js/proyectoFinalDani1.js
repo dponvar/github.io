@@ -41,7 +41,7 @@ function configurarSistemaRenderizado() {
 function establecerEscenaBase() {
     escenaJuego = new THREE.Scene();
     var cargadorFondo = new THREE.TextureLoader();
-    escenaJuego.background = cargadorFondo.load("../textures/sky.jpg");
+    escenaJuego.background = cargadorFondo.load("./textures/sky.jpg");
     contenedorMundo = new THREE.Object3D();
 }
 
@@ -282,7 +282,7 @@ function inicializarConfiguracionGlobal() {
 function cambiarModoIluminacion() {
     modoNocturno = !modoNocturno;
     
-    var rutaFondo = modoNocturno ? "../textures/noche.jpg" : "../textures/sky.jpg";
+    var rutaFondo = modoNocturno ? "./textures/noche.jpg" : "./textures/sky.jpg";
     escenaJuego.background = new THREE.TextureLoader().load(rutaFondo);
     
     if (iluminacionBicicleta) {
@@ -370,7 +370,7 @@ function procesarEntradaUsuario() {
 
 function cargarRecursosVisuales() {
     var cargadorTexturas = new THREE.TextureLoader();
-    texturaSuelo = cargadorTexturas.load("../textures/arco.jpg");
+    texturaSuelo = cargadorTexturas.load("./textures/arco.jpg");
     texturaSuelo.wrapS = THREE.RepeatWrapping;
     texturaSuelo.wrapT = THREE.RepeatWrapping;
     texturaSuelo.repeat.set(1, 1);
@@ -403,7 +403,7 @@ function cargarRecursosVisuales() {
 
 function cargarModeloBicicleta(cargador, estado, callback) {
     cargador.load(
-        "../textures/old_bicycle/scene.gltf",
+        "./textures/old_bicycle/scene.gltf",
         function(modelo) {
             luzDireccional.target = modelo.scene;
             luzFocal.target = modelo.scene;
@@ -475,7 +475,7 @@ function crearHazLuzVisible() {
 
 function cargarModeloPolicia(cargador, estado, callback) {
     cargador.load(
-        "../textures/police_car.glb",
+        "./textures/police_car.glb",
         function(modelo) {
             modelo.scene.position.set(0, 0, -100);
             modelo.scene.receiveShadow = true;
@@ -509,7 +509,7 @@ function cargarModeloPolicia(cargador, estado, callback) {
 
 function cargarModeloMoneda(cargador, estado, callback) {
     cargador.load(
-        "../textures/coin.glb",
+        "./textures/coin.glb",
         function(modelo) {
             modelo.scene.position.set(0, 5, -100);
             modelo.scene.receiveShadow = true;
@@ -557,7 +557,7 @@ function reiniciarSistemaJuego() {
     
     escenaJuego = new THREE.Scene();
     
-    var rutaFondo = modoNocturno ? "../textures/noche.jpg" : "../textures/sky.jpg";
+    var rutaFondo = modoNocturno ? "./textures/noche.jpg" : "./textures/sky.jpg";
     escenaJuego.background = new THREE.TextureLoader().load(rutaFondo);
     
     contenedorMundo = new THREE.Object3D();
