@@ -25,7 +25,11 @@ var velocidadObstaculos, modoNocturno;
 var marcaTiempoInicio, desplazamientoLateralBici;
 
 // Elementos de interfaz
-var elementoTextoTiempo, elementoTextoBoton, elementoContadorMonedas;
+var elementoTextoTiempo, elementoTextoBoton, elementoContadorMonedas, elementoFPS;
+
+// Variables FPS
+var contadorFrames = 0;
+var tiempoUltimoFPS = 0;
 
 // Texturas
 var texturaSuelo;
@@ -132,6 +136,7 @@ function construirInterfazUsuario() {
     crearDisplayTemporizador();
     crearBotonInstrucciones();
     crearContadorMonedas();
+    crearContadorFPS();
     construirPanelControles();
     inicializarConfiguracionGlobal();
 }
@@ -207,6 +212,27 @@ function crearContadorMonedas() {
     });
     elementoContadorMonedas.innerHTML = "MONEDAS: 0";
     document.body.appendChild(elementoContadorMonedas);
+}
+
+function crearContadorFPS() {
+    elementoFPS = document.createElement('div');
+    aplicarEstiloElemento(elementoFPS, {
+        position: 'absolute',
+        top: '400px',
+        left: '20px',
+        padding: '8px 15px',
+        fontFamily: 'Arial, sans-serif',
+        fontSize: '16px',
+        fontWeight: 'bold',
+        color: '#ffffff',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        border: '2px solid #00ff00',
+        borderRadius: '8px',
+        textAlign: 'center',
+        zIndex: '1000'
+    });
+    elementoFPS.innerHTML = "FPS: 0";
+    document.body.appendChild(elementoFPS);
 }
 
 function aplicarEstiloElemento(elemento, estilos) {
@@ -706,9 +732,22 @@ function actualizarEstadoJuego() {
     
     aplicarAnimacionMonedas();
     actualizarPosicionIluminacion();
+    actualizarFPS();
     
     if (!estadoColisionado && estadoJuegoIniciado) {
         procesarLogicaJuego();
+    }
+}
+
+function actualizarFPS() {
+    contadorFrames++;
+    var tiempoActual = Date.now();
+    
+    if (tiempoActual - tiempoUltimoFPS >= 1000) {
+        var fps = Math.round((contadorFrames * 1000) / (tiempoActual - tiempoUltimoFPS));
+        elementoFPS.innerHTML = "FPS: " + fps;
+        contadorFrames = 0;
+        tiempoUltimoFPS = tiempoActual;
     }
 }
 
